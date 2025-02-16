@@ -56,7 +56,7 @@ public class Circus {
         Duck andy = new Duck("Andy");
         animalArrayList.add(andy);
 
-        // Substitutability allows to add specific animals to Animal ArrayList
+        //Substitutability allows to add specific animals to Animal ArrayList
         for (Animal a : animalArrayList) {
             System.out.println(a);
         }
