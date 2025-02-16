@@ -5,9 +5,13 @@ import circus.animal.Duck;
 import circus.animal.Parrot;
 import circus.animal.Tiger;
 import circus.animal.Elephant;
+import circus.stuff.Cage;
 import circus.stuff.Cannon;
 import circus.stuff.Equipment;
 import circus.stuff.Ladder;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -43,6 +47,12 @@ public class Circus {
         return total;
     }
 
+    private static void printAllAnimals(ArrayList<Animal> animalArrayList) {
+        for (Animal a : animalArrayList) {
+            System.out.println(a);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(animals.length);
 //        makeAnimalsTalk();
@@ -68,6 +78,23 @@ public class Circus {
         System.out.println("After Sorting:");
         for (Animal a : animalArrayList) {
             System.out.println(a);
+        }
+
+        Elephant strongOne = new Elephant("StrongOne");
+        animalArrayList.add(strongOne);
+        Cage<Duck> duckCage = new Cage<>();
+        Duck duck = new Duck("LOUIE");
+        duckCage.lockUp(duck);
+        Parrot parrot = new Parrot("DOLLY");
+        Cage<Parrot> parrotCage = new Cage<>();
+        parrotCage.lockUp(parrot);
+
+        ArrayList<Cage> cages = new ArrayList<>();
+        cages.add(duckCage);
+        cages.add(parrotCage);
+
+        for(Cage c: cages) {
+            c.release();
         }
     }
 }
